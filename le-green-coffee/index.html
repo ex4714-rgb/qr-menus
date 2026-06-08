@@ -1,267 +1,108 @@
 <!DOCTYPE html>
-<html lang="fr" class="dark">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Le-green Coffee - Menu</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    
-    <link rel='preconnect' href='https://fonts.googleapis.com'>
-    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
-    <link href='https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap' rel='stylesheet'>
-  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le-green Coffee</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --bg-color: radial-gradient(circle at 20% 30%, rgba(54, 169, 47, 0.25) 0%, transparent 50%), radial-gradient(circle at 80% 60%, rgba(109, 84, 204, 0.25) 0%, transparent 50%), #1a1d23;
-            --text-color: #ffffff;
-            --accent-color: #34C759;
-            --font-title: 'Playfair Display', serif;
-        }
-
-        html {
-            background-color: #050505;
-            color: #ffffff;
-        }
-
         body {
             font-family: 'Inter', sans-serif;
-            background: var(--bg-color, #050505);
-            color: var(--text-color);
             margin: 0;
             padding: 0;
-            min-height: 100vh;
-            overflow-x: hidden;
+        }
+        .hero {
+            background-image: linear-gradient(to bottom, #2E865F, #228B44);
+            background-size: 100% 600px;
+            background-position: 0% 100%;
+            height: 100vh;
             display: flex;
-            flex-direction: column;
+            justify-content: center;
             align-items: center;
-            background-attachment: fixed;
+            color: white;
         }
-
-        .display-font {
-            font-family: var(--font-title);
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
         }
-
-        .glass-card {
-            background: rgba(255, 255, 255, 0.02);
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            box-shadow: 0 30px 60px rgba(0,0,0, 0.5);
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 20px;
         }
-
-        .theme-text {
-            color: var(--accent-color);
+        .menu-slider {
+            padding: 40px 0;
         }
-
-        .social-link {
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            color: var(--text-color);
-            opacity: 0.6;
+        .menu-slider .swiper-slide {
+            background-color: #f7f7f7;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
-        .social-link:hover {
-            opacity: 1;
-            transform: translateY(-4px) scale(1.05);
-            color: var(--accent-color);
+        .menu-slider .swiper-slide img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px 10px 0 0;
         }
-
-        .swiper-slide {
-            width: 320px;
-            max-width: 85vw;
+        .carousel-identity {
+            padding: 40px 0;
         }
-        .ambiance-swiper .swiper-slide {
-            width: auto;
+        .carousel-identity .swiper-slide {
+            background-color: #f7f7f7;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
-        
-        .swiper-pagination-bullet {
-            background: var(--text-color) !important;
-            opacity: 0.3 !important;
+        .carousel-identity .swiper-slide img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 10px 10px 0 0;
         }
-        .swiper-pagination-bullet-active {
-            background: var(--accent-color) !important;
-            opacity: 1 !important;
-        }
-
-        [data-animate] {
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fade-up 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-
-        @keyframes fade-up {
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        
-    body {
-      font-family: 'Playfair Display', sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-    .container {
-      max-width: 1200px;
-      margin: 40px auto;
-      padding: 20px;
-      background-color: rgba(26, 29, 35, 0.8);
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    }
-  
     </style>
 </head>
-<body class="relative w-full">
-    
-    <div id="lightbox" class="fixed inset-0 z-[100] hidden bg-black/95 flex justify-center items-center backdrop-blur-xl opacity-0 transition-opacity duration-300 pointer-events-none" onclick="closeLightbox()">
-        <div class="absolute top-6 right-6 lg:top-10 lg:right-10 text-white cursor-pointer hover:text-[var(--accent-color)] transition-colors z-[101]" onclick="closeLightbox()">
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+<body>
+    <section class="hero" style="background-image: url('https://scontent.fqfd1-1.fna.fbcdn.net/v/t51.82787-15/703692197_17970986007058868_3900586588477415931_n.jpg?stp=dst-jpg_tt6&cstp=mx1179x1571&ctp=s1179x1571&_nc_cat=100&ccb=1-7&_nc_sid=127cfc&_nc_ohc=kXLGyHP-120Q7kNvwFeOsxu&_nc_oc=AdpgXGuESR6YUz8NCFsze6tmXpIAbqQt59Tp8YNAksEr5_QtRc02jJDyJvh1oVr-i6k&_nc_zt=23&_nc_ht=scontent.fqfd1-1.fna&_nc_gid=aSXfX9la2OohFlPMN2K5fQ&_nc_ss=7b289&oh=00_Af__NHqpqjo3f7jZrLM6hgeqvSbL2XK2_ZSLEY-0wrw5Nw&oe=6A2CBF8B')">
+        <div class="container mx-auto text-center">
+            <h1 class="text-4xl font-bold font-playfair">Le-green Coffee</h1>
+            <p class="text-lg">Fast Food</p>
+            <button class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded">Découvrir notre menu</button>
         </div>
-        <img id="lightbox-img" src="" class="max-w-[95vw] max-h-[95vh] object-contain rounded-xl scale-95 transition-transform duration-300 shadow-2xl" onclick="event.stopPropagation()" />
-    </div>
+    </section>
 
-    <div class="max-w-4xl w-full mx-auto p-4 sm:p-8 z-10 flex flex-col min-h-screen">
-        <header class="w-full text-center mt-12 mb-10" data-animate style="animation-delay: 0.1s">
-            <h1 class="text-4xl sm:text-6xl font-bold mb-4 tracking-tight display-font leading-tight text-transparent bg-clip-text bg-gradient-to-br from-white to-white/70" style="color: var(--text-color)">Le-green Coffee</h1>
-            <p class="text-[10px] sm:text-xs tracking-[0.4em] uppercase opacity-60 mb-8 font-medium">Fast Food</p>
-            <div class="w-12 h-1 bg-white/10 mx-auto rounded-full mb-8 relative overflow-hidden">
-                <div class="absolute inset-0 bg-[var(--accent-color)] w-1/2 rounded-full"></div>
-            </div>
-            <p class="text-base sm:text-lg font-light leading-relaxed opacity-80 px-4 max-w-lg mx-auto italic">"L'univers gourmand de Le-green Coffee"</p>
-        </header>
-
-        <main class="w-full flex-grow flex flex-col items-center justify-center relative">
-            
-            <div class="w-full" data-animate style="animation-delay: 0.3s">
-                <div class="swiper menu-swiper !pb-12 !pt-4">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide flex justify-center items-center">
-        <div class="glass-card w-full rounded-2xl overflow-hidden relative group cursor-zoom-in" onclick="openLightbox('https://scontent.fqfd1-2.fna.fbcdn.net/v/t51.82787-15/582569979_17948605473058868_792318372638586447_n.jpg?stp=dst-jpg_tt6&cstp=mx763x1017&ctp=s763x1017&_nc_cat=106&ccb=1-7&_nc_sid=127cfc&_nc_ohc=7hrFty8iTSkQ7kNvwG_832s&_nc_oc=Adrzc4zVzUADTe_maOJRa-9x65wa_hCK2gtsr2Lj6rLfkeR59g9rpq77rrRl8_gVMA0&_nc_zt=23&_nc_ht=scontent.fqfd1-2.fna&_nc_gid=bVlWOgyO4jGsRoyYSlJ1Gg&_nc_ss=7a289&oh=00_Af9z_nCIWwEbK6BYFulzoXaZqi-mhm_qcZcHCoM38FQ8Vg&oe=6A2B9678')">
-            <img src="https://scontent.fqfd1-2.fna.fbcdn.net/v/t51.82787-15/582569979_17948605473058868_792318372638586447_n.jpg?stp=dst-jpg_tt6&cstp=mx763x1017&ctp=s763x1017&_nc_cat=106&ccb=1-7&_nc_sid=127cfc&_nc_ohc=7hrFty8iTSkQ7kNvwG_832s&_nc_oc=Adrzc4zVzUADTe_maOJRa-9x65wa_hCK2gtsr2Lj6rLfkeR59g9rpq77rrRl8_gVMA0&_nc_zt=23&_nc_ht=scontent.fqfd1-2.fna&_nc_gid=bVlWOgyO4jGsRoyYSlJ1Gg&_nc_ss=7a289&oh=00_Af9z_nCIWwEbK6BYFulzoXaZqi-mhm_qcZcHCoM38FQ8Vg&oe=6A2B9678" alt="Menu de Le-green Coffee" class="w-full h-auto object-cover" loading="lazy" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none flex items-end justify-center pb-6">
-                <span class="text-white/80 tracking-widest text-xs uppercase flex items-center gap-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><line x1="11" x2="11" y1="8" y2="14"/><line x1="8" x2="14" y1="11" y2="11"/></svg>
-                    Zoom
-                </span>
-            </div>
-        </div>
-    </div>
+    <section class="menu-slider">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold mb-4">Notre Menu</h2>
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="https://scontent.fqfd1-2.fna.fbcdn.net/v/t39.30808-6/470152125_122218423880033566_8820215707129238055_n.jpg?stp=dst-jpg_tt6&cstp=mx768x960&ctp=s768x960&_nc_cat=111&ccb=1-7&_nc_sid=833d8c&_nc_ohc=I0ExI_RcaJYQ7kNvwFZ2Avg&_nc_oc=AdooEDONKIDvWCXlyZnDjdm7mZ5ayEq7jd7mIa-aI8G4HVmyfWjsLjjG7PLyR0lddaU&_nc_zt=23&_nc_ht=scontent.fqfd1-2.fna&_nc_gid=ddPFsdyU0NYYRbrz5utGpg&_nc_ss=7b289&oh=00_Af-Tlr5fcKg5dVB5BLgTxq1YXsYsSVoZQP94mySa4EPr0g&oe=6A2CCEE1" alt="Menu Item 1">
+                        <h3 class="text-lg font-bold mt-2">Burger</h3>
+                        <p class="text-sm">10$</p>
                     </div>
-                    <div class="swiper-pagination menu-pagination"></div>
-                </div>
-            </div>
-            
-
-            
-            <section class="w-full mt-24 mb-8" data-animate style="animation-delay: 0.4s">
-                <h2 class="text-2xl sm:text-3xl font-bold mb-10 text-center display-font opacity-90">Notre ambiance conviviale</h2>
-                <div class="swiper ambiance-swiper !pb-12 !pt-4">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide flex justify-center items-center">
-        <div class="glass-card w-full rounded-3xl overflow-hidden relative group">
-            <img src="https://scontent.fqfd1-1.fna.fbcdn.net/v/t51.82787-15/706237633_17970986004058868_3426839219662954819_n.jpg?stp=dst-jpg_tt6&cstp=mx1179x1571&ctp=s1179x1571&_nc_cat=101&ccb=1-7&_nc_sid=127cfc&_nc_ohc=uVss9uFGWAAQ7kNvwFhIBTq&_nc_oc=AdrLvRPcM7JpwHbr5fT2uM-zaIe2-j8CfZlQlSy1B4aShO6y-Bb9HzVDbb_tUkaHPPk&_nc_zt=23&_nc_ht=scontent.fqfd1-1.fna&_nc_gid=VPATn5MdCfnnbpr5WHRkHQ&_nc_ss=7a289&oh=00_Af_tNS3dRWcWjpF3Mx_QSPxzWOiCrJnNkITyzJh6SU8XLQ&oe=6A2BA639" alt="Ambiance Le-green Coffee" class="w-full h-72 sm:h-96 object-cover" loading="lazy" onclick="openLightbox('https://scontent.fqfd1-1.fna.fbcdn.net/v/t51.82787-15/706237633_17970986004058868_3426839219662954819_n.jpg?stp=dst-jpg_tt6&cstp=mx1179x1571&ctp=s1179x1571&_nc_cat=101&ccb=1-7&_nc_sid=127cfc&_nc_ohc=uVss9uFGWAAQ7kNvwFhIBTq&_nc_oc=AdrLvRPcM7JpwHbr5fT2uM-zaIe2-j8CfZlQlSy1B4aShO6y-Bb9HzVDbb_tUkaHPPk&_nc_zt=23&_nc_ht=scontent.fqfd1-1.fna&_nc_gid=VPATn5MdCfnnbpr5WHRkHQ&_nc_ss=7a289&oh=00_Af_tNS3dRWcWjpF3Mx_QSPxzWOiCrJnNkITyzJh6SU8XLQ&oe=6A2BA639')" style="cursor: zoom-in;" />
-        </div>
-    </div>
+                    <div class="swiper-slide">
+                        <img src="https://scontent.fqfd1-1.fna.fbcdn.net/v/t39.30808-6/470071513_122218424168033566_2496675989223027510_n.jpg?stp=dst-jpg_tt6&cstp=mx1056x1656&ctp=s1056x1656&_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_ohc=zkDLts0Fr3wQ7kNvwFK3szd&_nc_oc=Adqt2s08JDmR0oSQca4C3Y0in45znh_rTVR4vRODRcTBMScsgTY_Isj2RJ6TDETgv2k&_nc_zt=23&_nc_ht=scontent.fqfd1-1.fna&_nc_gid=bxLIQ_a0YfGHF0HQgxvbQg&_nc_ss=7b289&oh=00_Af9Db1QckywLHEP3zUm6KJGXNNFss0cQJ7PEDAhPh9aiqA&oe=6A2CD3B6" alt="Menu Item 2">
+                        <h3 class="text-lg font-bold mt-2">Frites</h3>
+                        <p class="text-sm">5$</p>
                     </div>
-                    <div class="swiper-pagination ambiance-pagination"></div>
+                    <div class="swiper-slide">
+                        <img src="https://scontent.fqfd1-2.fna.fbcdn.net/v/t39.30808-6/470219998_122218424210033566_5561877502244564013_n.jpg?stp=dst-jpg_tt6&cstp=mx1220x1525&ctp=s1220x1525&_nc_cat=111&ccb=1-7&_nc_sid=833d8c&_nc_ohc=_hmHo4kGff4Q7kNvwFXkhOK&_nc_oc=AdoyuDlxb5ykx4OP2uu4a9pJ7KMfNS4r-SGWKNI9IfWpWQ_k20SE2t8oR3zJ2f1m1hY&_nc_zt=23&_nc_ht=scontent.fqfd1-2.fna&_nc_gid=v7BVRcAEJajfsv6ErVa8Hw&_nc_ss=7b289&oh=00_Af9cSxlRRxpud4Y4_IFevZUwfG2IoM5f6nla7O86O7wa2g&oe=6A2CBAFD" alt="Menu Item 3">
+                        <h3 class="text-lg font-bold mt-2">Salade</h3>
+                        <p class="text-sm">8$</p>
+                    </div>
                 </div>
-            </section>
-            
-        </main>
-
-        <footer class="w-full text-center pb-8 pt-12 mt-auto" data-animate style="animation-delay: 0.5s">
-            <div class="flex justify-center space-x-8 mb-10">
-                
-                <a href="https://www.google.com/maps/place/Le+green+coffee/@36.6060379,2.1840084,17z/data=!3m1!4b1!4m6!3m5!1s0x128575a0f8fde7f7:0x9a059b2ee16595c2!8m2!3d36.6060336!4d2.1865833!16s%2Fg%2F11vbdpkg06?entry=ttu&g_ep=EgoyMDI2MDYwMS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" class="social-link" title="Nous Trouver">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-                </a>
-                
-                
-                
-                <a href="https://www.instagram.com/la.piazza.green.coffe/" target="_blank" rel="noopener noreferrer" class="social-link" title="Instagram">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
-                </a>
-                
-                
-                
-                
-                
-                <a href="https://www.facebook.com/la.piazza.green.coffe/" target="_blank" rel="noopener noreferrer" class="social-link" title="Facebook">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-                </a>
-                
+                <div class="swiper-pagination"></div>
             </div>
-            <p class="text-[10px] text-gray-500 uppercase tracking-widest font-medium opacity-60">© 2026 Le-green Coffee</p>
-        </footer>
-    </div>
-    
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script>
-      document.addEventListener('DOMContentLoaded', () => {
-        if(document.querySelector('.menu-swiper')) {
-          new Swiper('.menu-swiper', {
-            effect: 'coverflow',
-            grabCursor: true,
-            centeredSlides: true,
-            slidesPerView: 'auto',
-            initialSlide: 0,
-            coverflowEffect: {
-              rotate: 10,
-              stretch: 0,
-              depth: 100,
-              modifier: 1,
-              slideShadows: false,
-            },
-            pagination: {
-              el: '.menu-pagination',
-              clickable: true,
-              dynamicBullets: true,
-            },
-          });
-        }
-        
-        if(document.querySelector('.ambiance-swiper')) {
-          new Swiper('.ambiance-swiper', {
-            grabCursor: true,
-            centeredSlides: true,
-            slidesPerView: 1.2,
-            spaceBetween: 24,
-            loop: false,
-            breakpoints: {
-              640: { slidesPerView: 2.2 }
-            },
-            pagination: {
-              el: '.ambiance-pagination',
-              clickable: true,
-              dynamicBullets: true,
-            },
-          });
-        }
-      });
+        </div>
+    </section>
 
-      function openLightbox(src) {
-        const lb = document.getElementById('lightbox');
-        const img = document.getElementById('lightbox-img');
-        img.src = src;
-        lb.classList.remove('hidden');
-        void lb.offsetWidth; // force reflow
-        lb.classList.remove('opacity-0', 'pointer-events-none');
-        img.classList.remove('scale-95');
-        img.classList.add('scale-100');
-        document.body.style.overflow = 'hidden';
-      }
-
-      function closeLightbox() {
-        const lb = document.getElementById('lightbox');
-        const img = document.getElementById('lightbox-img');
-        lb.classList.add('opacity-0', 'pointer-events-none');
-        img.classList.remove('scale-100');
-        img.classList.add('scale-95');
-        document.body.style.overflow = '';
-        setTimeout(() => {
-          lb.classList.add('hidden');
-        }, 300);
-      }
-    </script>
-  
-</body>
-</html>
+    <section class="carousel-identity">
+        <div class="container mx-auto">
+            <h2 class="text-3xl font-bold mb-4">Découvrez notre univers</h2>
+            <div class="swiper mySwiper2">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="https://scontent.fqfd1-1.fna.fbcdn.net/v/t51.82787-15/703692197_17970986007058868_3900586588477415931_n.jpg?stp=dst
