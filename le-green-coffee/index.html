@@ -8,25 +8,25 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     
-    <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap'>
+    <link href='https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap' rel='stylesheet'>
   
     <style>
         :root {
-            --bg-color: radial-gradient(circle at 20% 30%, rgba(34, 139, 34, 0.3) 0%, transparent 50%), radial-gradient(circle at 80% 60%, rgba(139, 69, 19, 0.2) 0%, transparent 50%), #2f2f2f;
+            --bg-color: radial-gradient(circle at 20% 40%, rgba(34, 139, 34, 0.3) 0%, transparent 50%), radial-gradient(circle at 80% 60%, rgba(139, 69, 19, 0.3) 0%, transparent 50%), linear-gradient(135deg, #432B1A, #2E865F), #1A1D23;
             --text-color: #ffffff;
-            --accent-color: #8bc34a;
+            --accent-color: #8B9467;
             --font-title: 'Playfair Display', serif;
         }
 
         html {
-            background-color: #050505;
+            background-color: transparent;
             color: #ffffff;
         }
 
         
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #050505;
+            background-color: transparent;
             color: var(--text-color);
             margin: 0;
             padding: 0;
@@ -48,7 +48,7 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(to bottom, rgba(5,5,5,0.5) 0%, rgba(5,5,5,0.95) 40%, rgba(5,5,5,1) 100%);
+            background: linear-gradient(to bottom, rgba(5,5,5,0.4) 0%, rgba(5,5,5,0.92) 50%, rgba(5,5,5,1) 100%);
         }
         
 
@@ -140,16 +140,19 @@
         
         
     body {
-      background-size: cover;
-      background-attachment: fixed;
+      background-size: 200% 200%;
+      animation: gradient 10s ease infinite;
     }
-    .container {
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 20px;
-      background-color: rgba(0, 0, 0, 0.8);
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    @keyframes gradient {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
     }
   
     </style>
@@ -187,7 +190,7 @@
             <div class="w-12 h-1 bg-white/10 mx-auto rounded-full mb-8 relative overflow-hidden">
                 <div class="absolute inset-0 bg-[var(--accent-color)] w-1/2 rounded-full"></div>
             </div>
-            <p class="text-base sm:text-lg font-light leading-relaxed opacity-80 px-4 max-w-lg mx-auto italic">"L'univers vert de Le-green Coffee"</p>
+            <p class="text-base sm:text-lg font-light leading-relaxed opacity-80 px-4 max-w-lg mx-auto italic">"L'univers gourmand du Green Coffee"</p>
         </header>
 
         <main class="w-full flex-grow flex flex-col items-center justify-center relative">
@@ -236,7 +239,7 @@
 
             
             <section class="w-full mt-24 mb-8" data-animate style="animation-delay: 0.4s">
-                <h2 class="text-2xl sm:text-3xl font-bold mb-10 text-center display-font opacity-90">Notre coin de verdure</h2>
+                <h2 class="text-2xl sm:text-3xl font-bold mb-10 text-center display-font opacity-90">Notre petite oasis gourmande</h2>
                 <div class="swiper ambiance-swiper !pb-12 !pt-4">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide flex justify-center items-center">
