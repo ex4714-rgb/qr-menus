@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="fr" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>yiiihaw coffeee - Menu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    
+    <link href='https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap' rel='stylesheet'>
+  
+    <style>
+        :root {
+            --bg-color: radial-gradient(135deg, #2c3e50 0%, #1a1d23 100%);
+            --text-color: #ffffff;
+            --accent-color: #8bc34a;
+            --font-title: 'Montserrat', serif;
+        }
+
+        html {
+            background-color: transparent;
+            color: #ffffff;
+        }
+
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: transparent;
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .main-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            z-index: -3;
+            background-image: url('https://plus.unsplash.com/premium_photo-1678481247786-c153c62086c2?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-size: cover;
+            background-position: center;
+        }
+        .main-bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(5,5,5,0.4) 0%, rgba(5,5,5,0.92) 50%, rgba(5,5,5,1) 100%);
+        }
+        
+
+        .display-font {
+            font-family: var(--font-title);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 30px 60px rgba(0,0,0, 0.5);
+        }
+
+        .theme-text {
+            color: var(--accent-color);
+        }
+
+        .social-link {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            color: var(--text-color);
+            opacity: 0.6;
+        }
+        .social-link:hover {
+            opacity: 1;
+            transform: translateY(-4px) scale(1.05);
+            color: var(--accent-color);
+        }
+
+        .swiper-slide {
+            width: 320px;
+            max-width: 85vw;
+        }
+        .ambiance-swiper .swiper-slide {
+            width: auto;
+        }
+        
+        .swiper-pagination-bullet {
+            background: var(--text-color) !important;
+            opacity: 0.3 !important;
+        }
+        .swiper-pagination-bullet-active {
+            background: var(--accent-color) !important;
+            opacity: 1 !important;
+        }
+
+        [data-animate] {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fade-up 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes fade-up {
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes fade-in {
+            to { opacity: 1; }
+        }
+
+        .noise-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            pointer-events: none;
+            z-index: 10;
+            opacity: 0.04;
+            background-image: url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)"/%3E%3C/svg%3E');
+        }
+
+        #cursor {
+            pointer-events: none;
+            position: fixed;
+            z-index: 9999;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            transform: translate(-50%, -50%);
+            transition: width 0.2s, height 0.2s, background-color 0.2s;
+            mix-blend-difference;
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            #cursor { display: block; }
+            body { cursor: none; }
+        }
+        
+        
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-image: radial-gradient(135deg, #2c3e50 0%, #1a1d23 100%);
+      background-attachment: fixed;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.2);
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+  
+    </style>
+</head>
+<body class="relative w-full">
+    <div class="main-bg"></div>
+    
+    <div id="loader" class="fixed inset-0 z-[200] bg-[#050505] flex items-center justify-center transition-all duration-1000">
+        <h1 class="text-3xl sm:text-5xl display-font tracking-widest text-white/70 animate-pulse">yiiihaw coffeee</h1>
+    </div>
+
+    <div class="noise-overlay"></div>
+    <div id="cursor"></div>
+
+    <div class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 pointer-events-none">
+        <div style="opacity: 0; animation: fade-in 1s forwards 2s;" class="pointer-events-auto">
+            <a href="tel:0555555555" onclick="handleOrderClick(event, '0555555555')" class="px-8 py-3.5 flex items-center gap-2 rounded-full text-xs uppercase tracking-[0.2em] font-medium bg-black/40 backdrop-blur-2xl border border-[var(--accent-color)]/30 text-white hover:bg-[var(--accent-color)] hover:text-black transition-all duration-500 shadow-[0_10px_40px_rgba(0,0,0,0.5)] cursor-pointer">
+                Commander
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+        </div>
+    </div>
+
+    <div id="lightbox" class="fixed inset-0 z-[100] hidden bg-black/95 flex justify-center items-center backdrop-blur-xl opacity-0 transition-opacity duration-300 pointer-events-none" onclick="closeLightbox()">
+        <div class="absolute top-6 right-6 lg:top-10 lg:right-10 text-white cursor-pointer hover:text-[var(--accent-color)] transition-colors z-[101]" onclick="closeLightbox()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+        </div>
+        <img id="lightbox-img" src="" class="max-w-[95vw] max-h-[95vh] object-contain rounded-xl scale-95 transition-transform duration-300 shadow-2xl" onclick="event.stopPropagation()" />
+    </div>
+
+    <div class="max-w-4xl w-full mx-auto p-4 sm:p-8 z-10 flex flex-col min-h-screen">
+        <header class="w-full text-center mt-12 mb-10" data-animate style="animation-delay: 0.1s">
+            <h1 class="text-4xl sm:text-6xl font-bold mb-4 tracking-tight display-font leading-tight text-transparent bg-clip-text bg-gradient-to-br from-white to-white/70" style="color: var(--text-color)">yiiihaw coffeee</h1>
+            <p class="text-[10px] sm:text-xs tracking-[0.4em] uppercase opacity-60 mb-8 font-medium">Fast Food</p>
+            <div class="w-12 h-1 bg-white/10 mx-auto rounded-full mb-8 relative overflow-hidden">
+                <div class="absolute inset-0 bg-[var(--accent-color)] w-1/2 rounded-full"></div>
+            </div>
+            <p class="text-base sm:text-lg font-light leading-relaxed opacity-80 px-4 max-w-lg mx-auto italic">"Découvrez l'univers de yiiihaw coffeee"</p>
+        </header>
+
+        <main class="w-full flex-grow flex flex-col items-center justify-center relative">
+            <!-- COMPACT CONTACT SECTION -->
+            <section id="contact-section" class="max-w-4xl w-full mt-4 mb-8 mx-auto px-4 scroll-mt-24" data-animate style="animation-delay: 0.2s">
+                <div class="glass-card rounded-3xl p-5 lg:p-6 backdrop-blur-xl border border-white/10 bg-black/40 shadow-2xl relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-[var(--accent-color)] opacity-[0.03] rounded-full blur-[80px] pointer-events-none"></div>
+                    
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 text-center relative z-10">
+                        
+                        <div class="flex flex-col items-center gap-1.5">
+                            <div class="w-8 h-8 rounded-full bg-[var(--accent-color)]/10 flex items-center justify-center text-[var(--accent-color)] mb-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                            </div>
+                            <h3 class="text-[10px] uppercase tracking-widest opacity-50 font-semibold">Adresse</h3>
+                            <p class="text-sm font-medium text-white/90">Beb El Gherb Cherchell</p>
+                        </div>
+
+                        
+                        <div class="flex flex-col items-center gap-1.5">
+                            <div class="w-8 h-8 rounded-full bg-[var(--accent-color)]/10 flex items-center justify-center text-[var(--accent-color)] mb-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            </div>
+                            <h3 class="text-[10px] uppercase tracking-widest opacity-50 font-semibold">Téléphone(s)</h3>
+                            <div class="flex flex-col gap-0.5 text-sm font-medium">
+                                <a href="tel:0555555555" class="text-white/90 hover:text-[var(--accent-color)] transition-colors block">0555555555</a>
+                            </div>
+                        </div>
+
+                        
+                        <div class="flex flex-col items-center gap-1.5">
+                            <div class="w-8 h-8 rounded-full bg-[var(--accent-color)]/10 flex items-center justify-center text-[var(--accent-color)] mb-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            </div>
+                            <h3 class="text-[10px] uppercase tracking-widest opacity-50 font-semibold">Horaires</h3>
+                            <p class="text-sm font-medium text-white/90">7/7 de 11h a 23h</p>
+                        </div>
+
+                        <div class="flex flex-col items-center gap-1.5">
+                            <div class="w-8 h-8 rounded-full bg-[var(--accent-color)]/10 flex items-center justify-center text-[var(--accent-color)] mb-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="10" width="18" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+                            </div>
+                            <h3 class="text-[10px] uppercase tracking-widest opacity-50 font-semibold">Livraison</h3>
+                            <p class="text-sm font-medium text-emerald-400">✓ Disponible</p>
+                        </div>
+                    </div>
+
+                    <div class="col-span-2 md:col-span-4 mt-6 pt-5 border-t border-white/5 relative z-10 flex flex-wrap justify-center gap-6">
+                        
+                        <a href="https://scontent.fqfd1-2.fna.fbcdn.net/v/t51.82787-15/703448726_17970985953058868_3412023034385271228_n.jpg?stp=dst-jpg_tt6&cstp=mx1179x1571&ctp=s1179x1571&_nc_cat=107&ccb=1-7&_nc_sid=127cfc&_nc_ohc=f8BieuFPUXgQ7kNvwFjC7oM&_nc_oc=AdqsrSNziokcPPbJDqRM80pQ4nwUb6T-KiCc5qz8ggeBubrKjdbWMdIycl_GAd3axsg&_nc_zt=23&_nc_ht=scontent.fqfd1-2.fna&_nc_gid=h0V5j9NatO9QuxPW1zmODA&_nc_ss=7b289&oh=00_Af9jkrm3kSVrnVI_PwF7ZPMIaCi0Pz3Ifvuftyr-av3jcg&oe=6A2CF2B8" target="_blank" class="flex items-center gap-2 text-[12px] font-semibold uppercase tracking-widest opacity-70 hover:opacity-100 hover:text-[var(--accent-color)] transition-all">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Y Aller
+                        </a>
+                        
+                        <a href="https://www.instagram.com/la.piazza.green.coffe/" target="_blank" class="flex items-center gap-2 text-[12px] font-semibold uppercase tracking-widest opacity-70 hover:opacity-100 hover:text-[var(--accent-color)] transition-all">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg> Instagram
+                        </a>
+                        
+                        
+                        <a href="https://www.facebook.com/la.piazza.green.coffe/" target="_blank" class="flex items-center gap-2 text-[12px] font-semibold uppercase tracking-widest opacity-70 hover:opacity-100 hover:text-[var(--accent-color)] transition-all">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg> Facebook
+                        </a>
+                        
+                    </div>
+                </div>
+            </section>
+
+            
+            <div class="w-full flex flex-col items-center mt-4" data-animate style="animation-delay: 0.3s">
+                <h2 class="text-3xl sm:text-4xl font-bold mb-2 display-font opacity-90 text-center relative z-10">Menu</h2>
+                <div class="swiper menu-swiper !pb-12 !pt-4 w-full">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide flex justify-center items-center">
+        <div class="glass-card w-full rounded-2xl overflow-hidden relative group cursor-zoom-in" onclick="openLightbox('https://scontent.fqfd1-1.fna.fbcdn.net/v/t51.82787-15/583581152_17948605464058868_6750097068369374604_n.jpg?stp=dst-jpg_tt6&cstp=mx764x1018&ctp=s764x1018&_nc_cat=105&ccb=1-7&_nc_sid=127cfc&_nc_ohc=IgX-c7RdPJsQ7kNvwGv3RqY&_nc_oc=AdoxCgMSXPd77ZZc-8iG8ZB9wlwPohIaMDy8QKbnGM70D-yvdCAXuMc_7U2AguE0N4c&_nc_zt=23&_nc_ht=scontent.fqfd1-1.fna&_nc_gid=u4s0QgZk8QY9Pw1-CB9AbQ&_nc_ss=7b289&oh=00_Af86HGEBslhk3uva5_ef8KboZR-ra5MaG3vonPjXq6hXiQ&oe=6A2CEB39')">
+            <img src="https://scontent.fqfd1-1.fna.fbcdn.net/v/t51.82787-15/583581152_17948605464058868_6750097068369374604_n.jpg?stp=dst-jpg_tt6&cstp=mx764x1018&ctp=s764x1018&_nc_cat=105&ccb=1-7&_nc_sid=127cfc&_nc_ohc=IgX-c7RdPJsQ7kNvwGv3RqY&_nc_oc=AdoxCgMSXPd77ZZc-8iG8ZB9wlwPohIaMDy8QKbnGM70D-yvdCAXuMc_7U2AguE0N4c&_nc_zt=23&_nc_ht=scontent.fqfd1-1.fna&_nc_gid=u4s0QgZk8QY9Pw1-CB9AbQ&_nc_ss=7b289&oh=00_Af86HGEBslhk3uva5_ef8KboZR-ra5MaG3vonPjXq6hXiQ&oe=6A2CEB39" alt="Menu de yiiihaw coffeee" class="w-full h-auto object-cover" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none flex items-end justify-center pb-6">
+                <span class="text-white/80 tracking-widest text-xs uppercase flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><line x1="11" x2="11" y1="8" y2="14"/><line x1="8" x2="14" y1="11" y2="11"/></svg>
+                    Zoom
+                </span>
+            </div>
+        </div>
+    </div>
+<div class="swiper-slide flex justify-center items-center">
+        <div class="glass-card w-full rounded-2xl overflow-hidden relative group cursor-zoom-in" onclick="openLightbox('https://scontent.fqfd1-1.fna.fbcdn.net/v/t51.82787-15/581715946_17948605482058868_4655117171214527790_n.jpg?stp=dst-jpg_tt6&cstp=mx763x1017&ctp=s763x1017&_nc_cat=104&ccb=1-7&_nc_sid=127cfc&_nc_ohc=mUyMpHuVj98Q7kNvwF6BCJV&_nc_oc=AdoD3HCytLOwghV_V57ZzzWIgZOPniPtrm0L2e0lDXymHQ_9eStnAnPOPpMWFCrOzRc&_nc_zt=23&_nc_ht=scontent.fqfd1-1.fna&_nc_gid=wXF6AHRVEKM8T03AdxyeQw&_nc_ss=7b289&oh=00_Af8hoPSx2Yni7ztY1LNRS7yOa22zXvlQMErI3xEtGGm7yA&oe=6A2CCC43')">
+            <img src="https://scontent.fqfd1-1.fna.fbcdn.net/v/t51.82787-15/581715946_17948605482058868_4655117171214527790_n.jpg?stp=dst-jpg_tt6&cstp=mx763x1017&ctp=s763x1017&_nc_cat=104&ccb=1-7&_nc_sid=127cfc&_nc_ohc=mUyMpHuVj98Q7kNvwF6BCJV&_nc_oc=AdoD3HCytLOwghV_V57ZzzWIgZOPniPtrm0L2e0lDXymHQ_9eStnAnPOPpMWFCrOzRc&_nc_zt=23&_nc_ht=scontent.fqfd1-1.fna&_nc_gid=wXF6AHRVEKM8T03AdxyeQw&_nc_ss=7b289&oh=00_Af8hoPSx2Yni7ztY1LNRS7yOa22zXvlQMErI3xEtGGm7yA&oe=6A2CCC43" alt="Menu de yiiihaw coffeee" class="w-full h-auto object-cover" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none flex items-end justify-center pb-6">
+                <span class="text-white/80 tracking-widest text-xs uppercase flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><line x1="11" x2="11" y1="8" y2="14"/><line x1="8" x2="14" y1="11" y2="11"/></svg>
+                    Zoom
+                </span>
+            </div>
+        </div>
+    </div>
+<div class="swiper-slide flex justify-center items-center">
+        <div class="glass-card w-full rounded-2xl overflow-hidden relative group cursor-zoom-in" onclick="openLightbox('https://scontent.fqfd1-1.fna.fbcdn.net/v/t51.82787-15/583060150_17948605521058868_3059464035834826602_n.jpg?stp=dst-jpg_tt6&cstp=mx764x1018&ctp=s764x1018&_nc_cat=104&ccb=1-7&_nc_sid=127cfc&_nc_ohc=6DxGigHxWgMQ7kNvwHPzN5P&_nc_oc=Adq-oNVHazeQg6C17qRBNwZqi6yJWhXZ5SAe2PB98BbrkMlO-izeqdGuMj_uMP6AxB4&_nc_zt=23&_nc_ht=scontent.fqfd1-1.fna&_nc_gid=CZn_BBZfGMd1xCo8t2ltcw&_nc_ss=7b289&oh=00_Af9DJ_86mJL4VLfmWkVwwKjr8SaLKE64eXP-uVVXFuQgjg&oe=6A2CD591')">
+            <img src="https://scontent.fqfd1-1.fna.fbcdn.net/v/t51.82787-15/583060150_17948605521058868_3059464035834826602_n.jpg?stp=dst-jpg_tt6&cstp=mx764x1018&ctp=s764x1018&_nc_cat=104&ccb=1-7&_nc_sid=127cfc&_nc_ohc=6DxGigHxWgMQ7kNvwHPzN5P&_nc_oc=Adq-oNVHazeQg6C17qRBNwZqi6yJWhXZ5SAe2PB98BbrkMlO-izeqdGuMj_uMP6AxB4&_nc_zt=23&_nc_ht=scontent.fqfd1-1.fna&_nc_gid=CZn_BBZfGMd1xCo8t2ltcw&_nc_ss=7b289&oh=00_Af9DJ_86mJL4VLfmWkVwwKjr8SaLKE64eXP-uVVXFuQgjg&oe=6A2CD591" alt="Menu de yiiihaw coffeee" class="w-full h-auto object-cover" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none flex items-end justify-center pb-6">
+                <span class="text-white/80 tracking-widest text-xs uppercase flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><line x1="11" x2="11" y1="8" y2="14"/><line x1="8" x2="14" y1="11" y2="11"/></svg>
+                    Zoom
+                </span>
+            </div>
+        </div>
+    </div>
+<div class="swiper-slide flex justify-center items-center">
+        <div class="glass-card w-full rounded-2xl overflow-hidden relative group cursor-zoom-in" onclick="openLightbox('https://scontent.fqfd1-2.fna.fbcdn.net/v/t51.82787-15/582569979_17948605473058868_792318372638586447_n.jpg?stp=dst-jpg_tt6&cstp=mx763x1017&ctp=s763x1017&_nc_cat=106&ccb=1-7&_nc_sid=127cfc&_nc_ohc=7hrFty8iTSkQ7kNvwGJa69F&_nc_oc=AdpGPOTOqPVuo_4ei2VNgfxXE_hTMF08U6mHa3LKnzgQJLcxA1bgROysq5Thgh4reMQ&_nc_zt=23&_nc_ht=scontent.fqfd1-2.fna&_nc_gid=z0DEJNBP5Uhdnjt5TLlUQg&_nc_ss=7b289&oh=00_Af_VBfFKhM1_3VBpW56X8sW0IQ7_QGQ0TsmmXM3huy1W_A&oe=6A2CE7F8')">
+            <img src="https://scontent.fqfd1-2.fna.fbcdn.net/v/t51.82787-15/582569979_17948605473058868_792318372638586447_n.jpg?stp=dst-jpg_tt6&cstp=mx763x1017&ctp=s763x1017&_nc_cat=106&ccb=1-7&_nc_sid=127cfc&_nc_ohc=7hrFty8iTSkQ7kNvwGJa69F&_nc_oc=AdpGPOTOqPVuo_4ei2VNgfxXE_hTMF08U6mHa3LKnzgQJLcxA1bgROysq5Thgh4reMQ&_nc_zt=23&_nc_ht=scontent.fqfd1-2.fna&_nc_gid=z0DEJNBP5Uhdnjt5TLlUQg&_nc_ss=7b289&oh=00_Af_VBfFKhM1_3VBpW56X8sW0IQ7_QGQ0TsmmXM3huy1W_A&oe=6A2CE7F8" alt="Menu de yiiihaw coffeee" class="w-full h-auto object-cover" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none flex items-end justify-center pb-6">
+                <span class="text-white/80 tracking-widest text-xs uppercase flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><line x1="11" x2="11" y1="8" y2="14"/><line x1="8" x2="14" y1="11" y2="11"/></svg>
+                    Zoom
+                </span>
+            </div>
+        </div>
+    </div>
+<div class="swiper-slide flex justify-center items-center">
+        <div class="glass-card w-full rounded-2xl overflow-hidden relative group cursor-zoom-in" onclick="openLightbox('https://scontent.fqfd1-1.fna.fbcdn.net/v/t51.82787-15/583286613_17948605530058868_7903366258414724664_n.jpg?stp=dst-jpg_tt6&cstp=mx764x1018&ctp=s764x1018&_nc_cat=100&ccb=1-7&_nc_sid=127cfc&_nc_ohc=Tu8ZZRYRRoEQ7kNvwEL8GBH&_nc_oc=AdrlwKML437fV2tHKDH3EdN7-IYuQ-Hn5hWm0aFgDuwYntfUZQWG7R27MFZorEWqTk0&_nc_zt=23&_nc_ht=scontent.fqfd1-1.fna&_nc_gid=Gmm1DZI1GC6THmCw2TOa-Q&_nc_ss=7b289&oh=00_Af_6Gkq2nyU32rCbEpqlSYRSW2nc1Aemcp_sHt1L_U45Qg&oe=6A2CE98D')">
+            <img src="https://scontent.fqfd1-1.fna.fbcdn.net/v/t51.82787-15/583286613_17948605530058868_7903366258414724664_n.jpg?stp=dst-jpg_tt6&cstp=mx764x1018&ctp=s764x1018&_nc_cat=100&ccb=1-7&_nc_sid=127cfc&_nc_ohc=Tu8ZZRYRRoEQ7kNvwEL8GBH&_nc_oc=AdrlwKML437fV2tHKDH3EdN7-IYuQ-Hn5hWm0aFgDuwYntfUZQWG7R27MFZorEWqTk0&_nc_zt=23&_nc_ht=scontent.fqfd1-1.fna&_nc_gid=Gmm1DZI1GC6THmCw2TOa-Q&_nc_ss=7b289&oh=00_Af_6Gkq2nyU32rCbEpqlSYRSW2nc1Aemcp_sHt1L_U45Qg&oe=6A2CE98D" alt="Menu de yiiihaw coffeee" class="w-full h-auto object-cover" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none flex items-end justify-center pb-6">
+                <span class="text-white/80 tracking-widest text-xs uppercase flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><line x1="11" x2="11" y1="8" y2="14"/><line x1="8" x2="14" y1="11" y2="11"/></svg>
+                    Zoom
+                </span>
+            </div>
+        </div>
+    </div>
+                    </div>
+                    <div class="swiper-pagination menu-pagination"></div>
+                </div>
+            </div>
+            
+
+            
+            <section class="w-full mt-24 mb-8" data-animate style="animation-delay: 0.4s">
+                <h2 class="text-2xl sm:text-3xl font-bold mb-10 text-center display-font opacity-90">Expérience Fast Food élégante</h2>
+                <div class="swiper ambiance-swiper !pb-12 !pt-4">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide flex justify-center items-center">
+        <div class="glass-card w-full rounded-3xl overflow-hidden relative group">
+            <img src="https://scontent.fqfd1-2.fna.fbcdn.net/v/t51.82787-15/686931271_17968416525058868_8279560550845076739_n.jpg?stp=dst-jpg_tt6&cstp=mx1179x1571&ctp=s1179x1571&_nc_cat=107&ccb=1-7&_nc_sid=127cfc&_nc_ohc=aCdaCevTeq8Q7kNvwE0G7aN&_nc_oc=AdqvWq-A2Vefr8FWUSp73KGJQmHBB3B1BWDfS8_I8xdsiO9CkIwCNW5E4Uv4ERWEcP0&_nc_zt=23&_nc_ht=scontent.fqfd1-2.fna&_nc_gid=Vtbckho5fv6ie8L_G_jreA&_nc_ss=7b289&oh=00_Af-kc85bUxPcpt7CDpEJAXSLRxEZPY4KHliGFiF6ZkifIg&oe=6A2CDF78" alt="Ambiance yiiihaw coffeee" class="w-full h-72 sm:h-96 object-cover" loading="lazy" onclick="openLightbox('https://scontent.fqfd1-2.fna.fbcdn.net/v/t51.82787-15/686931271_17968416525058868_8279560550845076739_n.jpg?stp=dst-jpg_tt6&cstp=mx1179x1571&ctp=s1179x1571&_nc_cat=107&ccb=1-7&_nc_sid=127cfc&_nc_ohc=aCdaCevTeq8Q7kNvwE0G7aN&_nc_oc=AdqvWq-A2Vefr8FWUSp73KGJQmHBB3B1BWDfS8_I8xdsiO9CkIwCNW5E4Uv4ERWEcP0&_nc_zt=23&_nc_ht=scontent.fqfd1-2.fna&_nc_gid=Vtbckho5fv6ie8L_G_jreA&_nc_ss=7b289&oh=00_Af-kc85bUxPcpt7CDpEJAXSLRxEZPY4KHliGFiF6ZkifIg&oe=6A2CDF78')" style="cursor: zoom-in;" />
+        </div>
+    </div>
+<div class="swiper-slide flex justify-center items-center">
+        <div class="glass-card w-full rounded-3xl overflow-hidden relative group">
+            <img src="https://scontent.fqfd1-1.fna.fbcdn.net/v/t51.82787-15/705137631_17970986094058868_7395141050652009682_n.jpg?stp=dst-jpg_tt6&cstp=mx1179x1571&ctp=s1179x1571&_nc_cat=105&ccb=1-7&_nc_sid=127cfc&_nc_ohc=u60Ka_Dr9AEQ7kNvwE6X3nH&_nc_oc=AdooLASgVRv5I6w5KvSO_fbIejFHB1cCUh_ugiWlpe1PpLpjpl0xV5L7LafeIddnnuc&_nc_zt=23&_nc_ht=scontent.fqfd1-1.fna&_nc_gid=c6UqeAxHeiz5aVjpqCopGQ&_nc_ss=7b289&oh=00_Af_620cvisPam8Du-wE535NGMevR6Ioj1TfGFVxoaJZ6yg&oe=6A2CECC1" alt="Ambiance yiiihaw coffeee" class="w-full h-72 sm:h-96 object-cover" loading="lazy" onclick="openLightbox('https://scontent.fqfd1-1.fna.fbcdn.net/v/t51.82787-15/705137631_17970986094058868_7395141050652009682_n.jpg?stp=dst-jpg_tt6&cstp=mx1179x1571&ctp=s1179x1571&_nc_cat=105&ccb=1-7&_nc_sid=127cfc&_nc_ohc=u60Ka_Dr9AEQ7kNvwE6X3nH&_nc_oc=AdooLASgVRv5I6w5KvSO_fbIejFHB1cCUh_ugiWlpe1PpLpjpl0xV5L7LafeIddnnuc&_nc_zt=23&_nc_ht=scontent.fqfd1-1.fna&_nc_gid=c6UqeAxHeiz5aVjpqCopGQ&_nc_ss=7b289&oh=00_Af_620cvisPam8Du-wE535NGMevR6Ioj1TfGFVxoaJZ6yg&oe=6A2CECC1')" style="cursor: zoom-in;" />
+        </div>
+    </div>
+<div class="swiper-slide flex justify-center items-center">
+        <div class="glass-card w-full rounded-3xl overflow-hidden relative group">
+            <img src="https://scontent.fqfd1-2.fna.fbcdn.net/v/t51.82787-15/703433821_17970985980058868_2354278086771199580_n.jpg?stp=dst-jpg_tt6&cstp=mx1179x1571&ctp=s1179x1571&_nc_cat=109&ccb=1-7&_nc_sid=127cfc&_nc_ohc=VyoVL_1vZQMQ7kNvwFHopoA&_nc_oc=AdpRuppBSV9I7SBJoR7CzNbl-xg04JOlX4kFNwvRWFXRZKgMeKyw1pBd-DJrJ2MqeDY&_nc_zt=23&_nc_ht=scontent.fqfd1-2.fna&_nc_gid=LlvEU8upBPgSSm2YkEpdMQ&_nc_ss=7b289&oh=00_Af8MxwjhSMHFp8tr1M9l5bQfH2zpbXuoYjC2udjxXYRrhA&oe=6A2CDB90" alt="Ambiance yiiihaw coffeee" class="w-full h-72 sm:h-96 object-cover" loading="lazy" onclick="openLightbox('https://scontent.fqfd1-2.fna.fbcdn.net/v/t51.82787-15/703433821_17970985980058868_2354278086771199580_n.jpg?stp=dst-jpg_tt6&cstp=mx1179x1571&ctp=s1179x1571&_nc_cat=109&ccb=1-7&_nc_sid=127cfc&_nc_ohc=VyoVL_1vZQMQ7kNvwFHopoA&_nc_oc=AdpRuppBSV9I7SBJoR7CzNbl-xg04JOlX4kFNwvRWFXRZKgMeKyw1pBd-DJrJ2MqeDY&_nc_zt=23&_nc_ht=scontent.fqfd1-2.fna&_nc_gid=LlvEU8upBPgSSm2YkEpdMQ&_nc_ss=7b289&oh=00_Af8MxwjhSMHFp8tr1M9l5bQfH2zpbXuoYjC2udjxXYRrhA&oe=6A2CDB90')" style="cursor: zoom-in;" />
+        </div>
+    </div>
+<div class="swiper-slide flex justify-center items-center">
+        <div class="glass-card w-full rounded-3xl overflow-hidden relative group">
+            <img src="https://scontent.fqfd1-1.fna.fbcdn.net/v/t51.82787-15/704672360_17970985977058868_5093999289281366905_n.jpg?stp=dst-jpg_tt6&cstp=mx941x1254&ctp=s941x1254&_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_ohc=TBh8mb89kGQQ7kNvwEBw2Cl&_nc_oc=AdpA5ntKQxUljE3FCuc4EzqSLuCSNQbFix3yORjbqwTOQG2DPIElqlFjRXtH8LxH5iA&_nc_zt=23&_nc_ht=scontent.fqfd1-1.fna&_nc_gid=qGXEEoXNOgG5hHy7U-fwdA&_nc_ss=7b289&oh=00_Af9TkVkNGSqIUfqGo5ISWmsir7AfSRhmUnUihZhUzg_0Aw&oe=6A2CDEA3" alt="Ambiance yiiihaw coffeee" class="w-full h-72 sm:h-96 object-cover" loading="lazy" onclick="openLightbox('https://scontent.fqfd1-1.fna.fbcdn.net/v/t51.82787-15/704672360_17970985977058868_5093999289281366905_n.jpg?stp=dst-jpg_tt6&cstp=mx941x1254&ctp=s941x1254&_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_ohc=TBh8mb89kGQQ7kNvwEBw2Cl&_nc_oc=AdpA5ntKQxUljE3FCuc4EzqSLuCSNQbFix3yORjbqwTOQG2DPIElqlFjRXtH8LxH5iA&_nc_zt=23&_nc_ht=scontent.fqfd1-1.fna&_nc_gid=qGXEEoXNOgG5hHy7U-fwdA&_nc_ss=7b289&oh=00_Af9TkVkNGSqIUfqGo5ISWmsir7AfSRhmUnUihZhUzg_0Aw&oe=6A2CDEA3')" style="cursor: zoom-in;" />
+        </div>
+    </div>
+<div class="swiper-slide flex justify-center items-center">
+        <div class="glass-card w-full rounded-3xl overflow-hidden relative group">
+            <img src="https://scontent.fqfd1-2.fna.fbcdn.net/v/t51.82787-15/703448726_17970985953058868_3412023034385271228_n.jpg?stp=dst-jpg_tt6&cstp=mx1179x1571&ctp=s1179x1571&_nc_cat=107&ccb=1-7&_nc_sid=127cfc&_nc_ohc=f8BieuFPUXgQ7kNvwFjC7oM&_nc_oc=AdqsrSNziokcPPbJDqRM80pQ4nwUb6T-KiCc5qz8ggeBubrKjdbWMdIycl_GAd3axsg&_nc_zt=23&_nc_ht=scontent.fqfd1-2.fna&_nc_gid=h0V5j9NatO9QuxPW1zmODA&_nc_ss=7b289&oh=00_Af9jkrm3kSVrnVI_PwF7ZPMIaCi0Pz3Ifvuftyr-av3jcg&oe=6A2CF2B8" alt="Ambiance yiiihaw coffeee" class="w-full h-72 sm:h-96 object-cover" loading="lazy" onclick="openLightbox('https://scontent.fqfd1-2.fna.fbcdn.net/v/t51.82787-15/703448726_17970985953058868_3412023034385271228_n.jpg?stp=dst-jpg_tt6&cstp=mx1179x1571&ctp=s1179x1571&_nc_cat=107&ccb=1-7&_nc_sid=127cfc&_nc_ohc=f8BieuFPUXgQ7kNvwFjC7oM&_nc_oc=AdqsrSNziokcPPbJDqRM80pQ4nwUb6T-KiCc5qz8ggeBubrKjdbWMdIycl_GAd3axsg&_nc_zt=23&_nc_ht=scontent.fqfd1-2.fna&_nc_gid=h0V5j9NatO9QuxPW1zmODA&_nc_ss=7b289&oh=00_Af9jkrm3kSVrnVI_PwF7ZPMIaCi0Pz3Ifvuftyr-av3jcg&oe=6A2CF2B8')" style="cursor: zoom-in;" />
+        </div>
+    </div>
+                    </div>
+                    <div class="swiper-pagination ambiance-pagination"></div>
+                </div>
+            </section>
+            
+
+
+        </main>
+
+        <footer class="w-full text-center pb-8 pt-12 mt-auto" data-animate style="animation-delay: 0.5s">
+            <p class="text-[10px] text-gray-500 uppercase tracking-widest font-medium opacity-60">© 2026 yiiihaw coffeee</p>
+        </footer>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        if(document.querySelector('.menu-swiper')) {
+          new Swiper('.menu-swiper', {
+            effect: 'coverflow',
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: 'auto',
+            initialSlide: 0,
+            coverflowEffect: {
+              rotate: 10,
+              stretch: 0,
+              depth: 100,
+              modifier: 1,
+              slideShadows: false,
+            },
+            pagination: {
+              el: '.menu-pagination',
+              clickable: true,
+              dynamicBullets: true,
+            },
+          });
+        }
+        
+        if(document.querySelector('.ambiance-swiper')) {
+          new Swiper('.ambiance-swiper', {
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: 1.2,
+            spaceBetween: 24,
+            loop: true,
+            autoplay: {
+              delay: 3500,
+              disableOnInteraction: false,
+            },
+            breakpoints: {
+              640: { slidesPerView: 2.2 }
+            },
+            pagination: {
+              el: '.ambiance-pagination',
+              clickable: true,
+              dynamicBullets: true,
+            },
+          });
+        }
+      });
+
+      function openLightbox(src) {
+        const lb = document.getElementById('lightbox');
+        const img = document.getElementById('lightbox-img');
+        img.src = src;
+        lb.classList.remove('hidden');
+        void lb.offsetWidth; // force reflow
+        lb.classList.remove('opacity-0', 'pointer-events-none');
+        img.classList.remove('scale-95');
+        img.classList.add('scale-100');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeLightbox() {
+        const lb = document.getElementById('lightbox');
+        const img = document.getElementById('lightbox-img');
+        lb.classList.add('opacity-0', 'pointer-events-none');
+        img.classList.remove('scale-100');
+        img.classList.add('scale-95');
+        document.body.style.overflow = '';
+        setTimeout(() => {
+          lb.classList.add('hidden');
+        }, 300);
+      }
+    </script>
+  
+    
+    <script>
+      window.addEventListener('load', () => {
+        window.scrollTo(0, 0);
+        setTimeout(() => {
+            const loader = document.getElementById('loader');
+            if (loader) {
+              loader.style.opacity = '0';
+              loader.style.pointerEvents = 'none';
+            }
+        }, 1500);
+      });
+
+      document.addEventListener('DOMContentLoaded', () => {
+        window.scrollTo(0, 0);
+      });
+
+      document.addEventListener('mousemove', (e) => {
+        const cursor = document.getElementById('cursor');
+        if (cursor) {
+          cursor.style.left = e.clientX + 'px';
+          cursor.style.top = e.clientY + 'px';
+        }
+      });
+      document.addEventListener('mousedown', () => {
+        const cursor = document.getElementById('cursor');
+        if (cursor) cursor.style.transform = 'translate(-50%, -50%) scale(0.5)';
+      });
+      document.addEventListener('mouseup', () => {
+        const cursor = document.getElementById('cursor');
+        if (cursor) cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+      });
+
+      function handleOrderClick(e, phone) {
+        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        if (!isMobile || !phone) {
+          e.preventDefault();
+          const contactSec = document.getElementById('contact-section');
+          if (contactSec) {
+            contactSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }
+      }
+    </script>
+  
+</body>
+</html>
