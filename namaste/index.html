@@ -3,20 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Namaste - Menu</title>
+    <title>NAMASTE - Menu</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     
-    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap'>
+    <link rel='preconnect' href='https://fonts.googleapis.com'>
+    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+    <link href='https://fonts.googleapis.com/css2?family=Playfair+Display&family=Montserrat:wght@400;600&display=swap' rel='stylesheet'>
   
     <style>
         :root {
             --bg-color: radial-gradient(135deg, #452B7F 0%, #1A1D23 100%);
             --text-color: #ffffff;
             --accent-color: #FFD700;
-            --font-title: 'Montserrat', serif;
+            --font-title: 'Playfair Display', serif;
         }
 
         html {
@@ -140,25 +141,19 @@
         }
         
         
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 50px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
       height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
-    .image-bg {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-size: cover;
-      background-position: center;
-      opacity: 0.2;
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      text-align: center;
     }
   
     </style>
@@ -167,7 +162,7 @@
     <div class="main-bg"></div>
     
     <div id="loader" class="fixed inset-0 z-[200] bg-[#050505] flex items-center justify-center transition-all duration-1000">
-        <h1 class="text-3xl sm:text-5xl display-font tracking-widest text-white/70 animate-pulse">Namaste</h1>
+        <h1 class="text-3xl sm:text-5xl display-font tracking-widest text-white/70 animate-pulse">NAMASTE</h1>
     </div>
 
     <div class="noise-overlay"></div>
@@ -182,7 +177,7 @@
         </div>
     </div>
 
-    <div id="lightbox" class="fixed inset-0 z-[100] hidden bg-black/95 flex justify-center items-center backdrop-blur-xl opacity-0 transition-opacity duration-300 pointer-events-none" onclick="closeLightbox()">
+    <div id="lightbox" class="fixed inset-0 z-[100] hidden bg-black/95 flex justify-center items-center backdrop-blur-xl opacity-0 transition-opacity duration-300 pointer-events-none touch-none" onclick="closeLightbox()">
         <div class="absolute top-6 right-6 lg:top-10 lg:right-10 text-white cursor-pointer hover:text-[var(--accent-color)] transition-colors z-[101]" onclick="closeLightbox()">
             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
         </div>
@@ -197,12 +192,12 @@
 
     <div class="max-w-4xl w-full mx-auto p-4 sm:p-8 z-10 flex flex-col min-h-screen">
         <header class="w-full text-center mt-12 mb-10" data-animate style="animation-delay: 0.1s">
-            <h1 class="text-4xl sm:text-6xl font-bold mb-4 tracking-tight display-font leading-tight text-transparent bg-clip-text bg-gradient-to-br from-white to-white/70" style="color: var(--text-color)">Namaste</h1>
+            <h1 class="text-4xl sm:text-6xl font-bold mb-4 tracking-tight display-font leading-tight text-transparent bg-clip-text bg-gradient-to-br from-white to-white/70" style="color: var(--text-color)">NAMASTE</h1>
             <p class="text-[10px] sm:text-xs tracking-[0.4em] uppercase opacity-60 mb-8 font-medium">Indian Restaurant</p>
             <div class="w-12 h-1 bg-white/10 mx-auto rounded-full mb-8 relative overflow-hidden">
                 <div class="absolute inset-0 bg-[var(--accent-color)] w-1/2 rounded-full"></div>
             </div>
-            <p class="text-base sm:text-lg font-light leading-relaxed opacity-80 px-4 max-w-lg mx-auto italic">"Découvrez l'essence de l'Inde à Namaste"</p>
+            <p class="text-base sm:text-lg font-light leading-relaxed opacity-80 px-4 max-w-lg mx-auto italic">"Découvrez l'essence de l'Inde à NAMASTE"</p>
         </header>
 
         <main class="w-full flex-grow flex flex-col items-center justify-center relative">
@@ -256,7 +251,7 @@
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Y Aller
                         </a>
                         
-                        <a href="https://www.instagram.com/la.piazza.green.coffe/" target="_blank" class="flex items-center gap-2 text-[12px] font-semibold uppercase tracking-widest opacity-70 hover:opacity-100 hover:text-[var(--accent-color)] transition-all">
+                        <a href="https://www.instagram.com/namaste.indian.restaurant/" target="_blank" class="flex items-center gap-2 text-[12px] font-semibold uppercase tracking-widest opacity-70 hover:opacity-100 hover:text-[var(--accent-color)] transition-all">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg> Instagram
                         </a>
                         
@@ -273,7 +268,7 @@
                     <div class="swiper-wrapper">
                         <div class="swiper-slide flex justify-center items-center">
         <div class="glass-card w-full rounded-2xl overflow-hidden relative group cursor-zoom-in" onclick="openLightbox('https://i.postimg.cc/fyjvvBXB/Screenshot-20260610-205408-Instagram.jpg', 0, true)">
-            <img src="https://i.postimg.cc/fyjvvBXB/Screenshot-20260610-205408-Instagram.jpg" alt="Menu de Namaste" class="w-full h-auto object-cover" loading="lazy" />
+            <img src="https://i.postimg.cc/fyjvvBXB/Screenshot-20260610-205408-Instagram.jpg" alt="Menu de NAMASTE" class="w-full h-auto object-cover" loading="lazy" />
             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none flex items-end justify-center pb-6">
                 <span class="text-white/80 tracking-widest text-xs uppercase flex items-center gap-2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><line x1="11" x2="11" y1="8" y2="14"/><line x1="8" x2="14" y1="11" y2="11"/></svg>
@@ -284,7 +279,7 @@
     </div>
 <div class="swiper-slide flex justify-center items-center">
         <div class="glass-card w-full rounded-2xl overflow-hidden relative group cursor-zoom-in" onclick="openLightbox('https://i.postimg.cc/qB8Q0MYR/Screenshot-20260610-205440-Instagram.jpg', 1, true)">
-            <img src="https://i.postimg.cc/qB8Q0MYR/Screenshot-20260610-205440-Instagram.jpg" alt="Menu de Namaste" class="w-full h-auto object-cover" loading="lazy" />
+            <img src="https://i.postimg.cc/qB8Q0MYR/Screenshot-20260610-205440-Instagram.jpg" alt="Menu de NAMASTE" class="w-full h-auto object-cover" loading="lazy" />
             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none flex items-end justify-center pb-6">
                 <span class="text-white/80 tracking-widest text-xs uppercase flex items-center gap-2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><line x1="11" x2="11" y1="8" y2="14"/><line x1="8" x2="14" y1="11" y2="11"/></svg>
@@ -295,7 +290,7 @@
     </div>
 <div class="swiper-slide flex justify-center items-center">
         <div class="glass-card w-full rounded-2xl overflow-hidden relative group cursor-zoom-in" onclick="openLightbox('https://i.postimg.cc/hjmsXStH/Screenshot-20260610-205431-Instagram.jpg', 2, true)">
-            <img src="https://i.postimg.cc/hjmsXStH/Screenshot-20260610-205431-Instagram.jpg" alt="Menu de Namaste" class="w-full h-auto object-cover" loading="lazy" />
+            <img src="https://i.postimg.cc/hjmsXStH/Screenshot-20260610-205431-Instagram.jpg" alt="Menu de NAMASTE" class="w-full h-auto object-cover" loading="lazy" />
             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none flex items-end justify-center pb-6">
                 <span class="text-white/80 tracking-widest text-xs uppercase flex items-center gap-2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><line x1="11" x2="11" y1="8" y2="14"/><line x1="8" x2="14" y1="11" y2="11"/></svg>
@@ -306,7 +301,7 @@
     </div>
 <div class="swiper-slide flex justify-center items-center">
         <div class="glass-card w-full rounded-2xl overflow-hidden relative group cursor-zoom-in" onclick="openLightbox('https://i.postimg.cc/g0Q4cwmT/Screenshot-20260610-205449-Instagram.jpg', 3, true)">
-            <img src="https://i.postimg.cc/g0Q4cwmT/Screenshot-20260610-205449-Instagram.jpg" alt="Menu de Namaste" class="w-full h-auto object-cover" loading="lazy" />
+            <img src="https://i.postimg.cc/g0Q4cwmT/Screenshot-20260610-205449-Instagram.jpg" alt="Menu de NAMASTE" class="w-full h-auto object-cover" loading="lazy" />
             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none flex items-end justify-center pb-6">
                 <span class="text-white/80 tracking-widest text-xs uppercase flex items-center gap-2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><line x1="11" x2="11" y1="8" y2="14"/><line x1="8" x2="14" y1="11" y2="11"/></svg>
@@ -317,7 +312,7 @@
     </div>
 <div class="swiper-slide flex justify-center items-center">
         <div class="glass-card w-full rounded-2xl overflow-hidden relative group cursor-zoom-in" onclick="openLightbox('https://i.postimg.cc/Lswv4q2T/Screenshot-20260610-205502-Instagram.jpg', 4, true)">
-            <img src="https://i.postimg.cc/Lswv4q2T/Screenshot-20260610-205502-Instagram.jpg" alt="Menu de Namaste" class="w-full h-auto object-cover" loading="lazy" />
+            <img src="https://i.postimg.cc/Lswv4q2T/Screenshot-20260610-205502-Instagram.jpg" alt="Menu de NAMASTE" class="w-full h-auto object-cover" loading="lazy" />
             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none flex items-end justify-center pb-6">
                 <span class="text-white/80 tracking-widest text-xs uppercase flex items-center gap-2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><line x1="11" x2="11" y1="8" y2="14"/><line x1="8" x2="14" y1="11" y2="11"/></svg>
@@ -328,7 +323,7 @@
     </div>
 <div class="swiper-slide flex justify-center items-center">
         <div class="glass-card w-full rounded-2xl overflow-hidden relative group cursor-zoom-in" onclick="openLightbox('https://i.postimg.cc/Y0w3gJ4g/Screenshot-20260610-205418-Instagram.jpg', 5, true)">
-            <img src="https://i.postimg.cc/Y0w3gJ4g/Screenshot-20260610-205418-Instagram.jpg" alt="Menu de Namaste" class="w-full h-auto object-cover" loading="lazy" />
+            <img src="https://i.postimg.cc/Y0w3gJ4g/Screenshot-20260610-205418-Instagram.jpg" alt="Menu de NAMASTE" class="w-full h-auto object-cover" loading="lazy" />
             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none flex items-end justify-center pb-6">
                 <span class="text-white/80 tracking-widest text-xs uppercase flex items-center gap-2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><line x1="11" x2="11" y1="8" y2="14"/><line x1="8" x2="14" y1="11" y2="11"/></svg>
@@ -339,7 +334,7 @@
     </div>
 <div class="swiper-slide flex justify-center items-center">
         <div class="glass-card w-full rounded-2xl overflow-hidden relative group cursor-zoom-in" onclick="openLightbox('https://i.postimg.cc/rm4jD8pF/Screenshot-20260610-205513-Instagram.jpg', 6, true)">
-            <img src="https://i.postimg.cc/rm4jD8pF/Screenshot-20260610-205513-Instagram.jpg" alt="Menu de Namaste" class="w-full h-auto object-cover" loading="lazy" />
+            <img src="https://i.postimg.cc/rm4jD8pF/Screenshot-20260610-205513-Instagram.jpg" alt="Menu de NAMASTE" class="w-full h-auto object-cover" loading="lazy" />
             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none flex items-end justify-center pb-6">
                 <span class="text-white/80 tracking-widest text-xs uppercase flex items-center gap-2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><line x1="11" x2="11" y1="8" y2="14"/><line x1="8" x2="14" y1="11" y2="11"/></svg>
@@ -350,7 +345,7 @@
     </div>
 <div class="swiper-slide flex justify-center items-center">
         <div class="glass-card w-full rounded-2xl overflow-hidden relative group cursor-zoom-in" onclick="openLightbox('https://i.postimg.cc/HLVBC0Gq/Screenshot-20260610-205521-Instagram.jpg', 7, true)">
-            <img src="https://i.postimg.cc/HLVBC0Gq/Screenshot-20260610-205521-Instagram.jpg" alt="Menu de Namaste" class="w-full h-auto object-cover" loading="lazy" />
+            <img src="https://i.postimg.cc/HLVBC0Gq/Screenshot-20260610-205521-Instagram.jpg" alt="Menu de NAMASTE" class="w-full h-auto object-cover" loading="lazy" />
             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none flex items-end justify-center pb-6">
                 <span class="text-white/80 tracking-widest text-xs uppercase flex items-center gap-2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><line x1="11" x2="11" y1="8" y2="14"/><line x1="8" x2="14" y1="11" y2="11"/></svg>
@@ -367,37 +362,37 @@
 
             
             <section class="w-full mt-24 mb-8" data-animate style="animation-delay: 0.4s">
-                <h2 class="text-2xl sm:text-3xl font-bold mb-10 text-center display-font opacity-90">Expérience culinaire immersive</h2>
+                <h2 class="text-2xl sm:text-3xl font-bold mb-10 text-center display-font opacity-90">Expérience culinaire indienne authentique</h2>
                 <div class="swiper ambiance-swiper !pb-12 !pt-4">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide flex justify-center items-center">
         <div class="glass-card w-full rounded-3xl overflow-hidden relative group">
-            <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAGm4-92NgEBJQ9FZyHIAxf3aaptVOLIpPwPwGNps6ZEgO53mrFFzfFAxZG5twPlafS2Pq8fIK-LOjR_NvAstmqWaST-eyLVHhdqpexWXGS0-ghCi5zxMvdpUNtpz2u4udAop07LcBbBTh4=s680-w680-h510" alt="Ambiance Namaste" class="w-full h-72 sm:h-96 object-cover" loading="lazy" onclick="openLightbox('https://lh3.googleusercontent.com/gps-cs-s/APNQkAGm4-92NgEBJQ9FZyHIAxf3aaptVOLIpPwPwGNps6ZEgO53mrFFzfFAxZG5twPlafS2Pq8fIK-LOjR_NvAstmqWaST-eyLVHhdqpexWXGS0-ghCi5zxMvdpUNtpz2u4udAop07LcBbBTh4=s680-w680-h510')" style="cursor: zoom-in;" />
+            <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAGm4-92NgEBJQ9FZyHIAxf3aaptVOLIpPwPwGNps6ZEgO53mrFFzfFAxZG5twPlafS2Pq8fIK-LOjR_NvAstmqWaST-eyLVHhdqpexWXGS0-ghCi5zxMvdpUNtpz2u4udAop07LcBbBTh4=s680-w680-h510" alt="Ambiance NAMASTE" class="w-full h-72 sm:h-96 object-cover" loading="lazy" onclick="openLightbox('https://lh3.googleusercontent.com/gps-cs-s/APNQkAGm4-92NgEBJQ9FZyHIAxf3aaptVOLIpPwPwGNps6ZEgO53mrFFzfFAxZG5twPlafS2Pq8fIK-LOjR_NvAstmqWaST-eyLVHhdqpexWXGS0-ghCi5zxMvdpUNtpz2u4udAop07LcBbBTh4=s680-w680-h510')" style="cursor: zoom-in;" />
         </div>
     </div>
 <div class="swiper-slide flex justify-center items-center">
         <div class="glass-card w-full rounded-3xl overflow-hidden relative group">
-            <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAFYA-jwEiXGgZllK211WfmJC3QavZD1nQLHDkVG71Jb7ko8ytvV9aR85PRgIhpBXHIfDlpbbUilPeJkrmXVkWneo7apiANMFKoGuzAf-inR0E6LBVG5NVSfWa-UMIPIC6YPdYqwPyD1_-9V=s680-w680-h510" alt="Ambiance Namaste" class="w-full h-72 sm:h-96 object-cover" loading="lazy" onclick="openLightbox('https://lh3.googleusercontent.com/gps-cs-s/APNQkAFYA-jwEiXGgZllK211WfmJC3QavZD1nQLHDkVG71Jb7ko8ytvV9aR85PRgIhpBXHIfDlpbbUilPeJkrmXVkWneo7apiANMFKoGuzAf-inR0E6LBVG5NVSfWa-UMIPIC6YPdYqwPyD1_-9V=s680-w680-h510')" style="cursor: zoom-in;" />
+            <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAFYA-jwEiXGgZllK211WfmJC3QavZD1nQLHDkVG71Jb7ko8ytvV9aR85PRgIhpBXHIfDlpbbUilPeJkrmXVkWneo7apiANMFKoGuzAf-inR0E6LBVG5NVSfWa-UMIPIC6YPdYqwPyD1_-9V=s680-w680-h510" alt="Ambiance NAMASTE" class="w-full h-72 sm:h-96 object-cover" loading="lazy" onclick="openLightbox('https://lh3.googleusercontent.com/gps-cs-s/APNQkAFYA-jwEiXGgZllK211WfmJC3QavZD1nQLHDkVG71Jb7ko8ytvV9aR85PRgIhpBXHIfDlpbbUilPeJkrmXVkWneo7apiANMFKoGuzAf-inR0E6LBVG5NVSfWa-UMIPIC6YPdYqwPyD1_-9V=s680-w680-h510')" style="cursor: zoom-in;" />
         </div>
     </div>
 <div class="swiper-slide flex justify-center items-center">
         <div class="glass-card w-full rounded-3xl overflow-hidden relative group">
-            <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAGplhlKXTet5BEtMQAjxapKOjX4LPGqrNSItbSXFkHj34Qi9n7ZyU9wT21MuyW3qnZ7cn_ocjV8lSublEPVIgyf7Yupmo2HzPIrkkWHYtnbygbr8l3Bk8ypRQ0zV3VIKarUpujZ_bUZriKJ=s680-w680-h510" alt="Ambiance Namaste" class="w-full h-72 sm:h-96 object-cover" loading="lazy" onclick="openLightbox('https://lh3.googleusercontent.com/gps-cs-s/APNQkAGplhlKXTet5BEtMQAjxapKOjX4LPGqrNSItbSXFkHj34Qi9n7ZyU9wT21MuyW3qnZ7cn_ocjV8lSublEPVIgyf7Yupmo2HzPIrkkWHYtnbygbr8l3Bk8ypRQ0zV3VIKarUpujZ_bUZriKJ=s680-w680-h510')" style="cursor: zoom-in;" />
+            <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAGplhlKXTet5BEtMQAjxapKOjX4LPGqrNSItbSXFkHj34Qi9n7ZyU9wT21MuyW3qnZ7cn_ocjV8lSublEPVIgyf7Yupmo2HzPIrkkWHYtnbygbr8l3Bk8ypRQ0zV3VIKarUpujZ_bUZriKJ=s680-w680-h510" alt="Ambiance NAMASTE" class="w-full h-72 sm:h-96 object-cover" loading="lazy" onclick="openLightbox('https://lh3.googleusercontent.com/gps-cs-s/APNQkAGplhlKXTet5BEtMQAjxapKOjX4LPGqrNSItbSXFkHj34Qi9n7ZyU9wT21MuyW3qnZ7cn_ocjV8lSublEPVIgyf7Yupmo2HzPIrkkWHYtnbygbr8l3Bk8ypRQ0zV3VIKarUpujZ_bUZriKJ=s680-w680-h510')" style="cursor: zoom-in;" />
         </div>
     </div>
 <div class="swiper-slide flex justify-center items-center">
         <div class="glass-card w-full rounded-3xl overflow-hidden relative group">
-            <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAG_O_yhsc-a7pV1A9gM_5tCy8Z-32X6mVpau7a1kRC1P0nJw8vtcwp9NdRk5EB8x-FJPF78GotrEtHzWRs7Cwm4I8srVK33DqJlFQClVKPyS0mSshRDztcWoXzfcvv_Nw6SRm7JRhY5Saut=s680-w680-h510" alt="Ambiance Namaste" class="w-full h-72 sm:h-96 object-cover" loading="lazy" onclick="openLightbox('https://lh3.googleusercontent.com/gps-cs-s/APNQkAG_O_yhsc-a7pV1A9gM_5tCy8Z-32X6mVpau7a1kRC1P0nJw8vtcwp9NdRk5EB8x-FJPF78GotrEtHzWRs7Cwm4I8srVK33DqJlFQClVKPyS0mSshRDztcWoXzfcvv_Nw6SRm7JRhY5Saut=s680-w680-h510')" style="cursor: zoom-in;" />
+            <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAG_O_yhsc-a7pV1A9gM_5tCy8Z-32X6mVpau7a1kRC1P0nJw8vtcwp9NdRk5EB8x-FJPF78GotrEtHzWRs7Cwm4I8srVK33DqJlFQClVKPyS0mSshRDztcWoXzfcvv_Nw6SRm7JRhY5Saut=s680-w680-h510" alt="Ambiance NAMASTE" class="w-full h-72 sm:h-96 object-cover" loading="lazy" onclick="openLightbox('https://lh3.googleusercontent.com/gps-cs-s/APNQkAG_O_yhsc-a7pV1A9gM_5tCy8Z-32X6mVpau7a1kRC1P0nJw8vtcwp9NdRk5EB8x-FJPF78GotrEtHzWRs7Cwm4I8srVK33DqJlFQClVKPyS0mSshRDztcWoXzfcvv_Nw6SRm7JRhY5Saut=s680-w680-h510')" style="cursor: zoom-in;" />
         </div>
     </div>
 <div class="swiper-slide flex justify-center items-center">
         <div class="glass-card w-full rounded-3xl overflow-hidden relative group">
-            <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAF1SpWEZhLlU_Bx2HN_jesDCOz8ovrl9PmnxaIDb2INKBBsloqmoam711VsTP6UozGEmFzaplhVKFgi4I9gyny8T3QKDBigxuhqXmPz7M6I8yCmyD40AMBQuXAnFaJd06KJs9LoOBBUW5hk=s680-w680-h510" alt="Ambiance Namaste" class="w-full h-72 sm:h-96 object-cover" loading="lazy" onclick="openLightbox('https://lh3.googleusercontent.com/gps-cs-s/APNQkAF1SpWEZhLlU_Bx2HN_jesDCOz8ovrl9PmnxaIDb2INKBBsloqmoam711VsTP6UozGEmFzaplhVKFgi4I9gyny8T3QKDBigxuhqXmPz7M6I8yCmyD40AMBQuXAnFaJd06KJs9LoOBBUW5hk=s680-w680-h510')" style="cursor: zoom-in;" />
+            <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAF1SpWEZhLlU_Bx2HN_jesDCOz8ovrl9PmnxaIDb2INKBBsloqmoam711VsTP6UozGEmFzaplhVKFgi4I9gyny8T3QKDBigxuhqXmPz7M6I8yCmyD40AMBQuXAnFaJd06KJs9LoOBBUW5hk=s680-w680-h510" alt="Ambiance NAMASTE" class="w-full h-72 sm:h-96 object-cover" loading="lazy" onclick="openLightbox('https://lh3.googleusercontent.com/gps-cs-s/APNQkAF1SpWEZhLlU_Bx2HN_jesDCOz8ovrl9PmnxaIDb2INKBBsloqmoam711VsTP6UozGEmFzaplhVKFgi4I9gyny8T3QKDBigxuhqXmPz7M6I8yCmyD40AMBQuXAnFaJd06KJs9LoOBBUW5hk=s680-w680-h510')" style="cursor: zoom-in;" />
         </div>
     </div>
 <div class="swiper-slide flex justify-center items-center">
         <div class="glass-card w-full rounded-3xl overflow-hidden relative group">
-            <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAEbINBMhurNYovG7234oF6uEvn87L8JUNpx1QExY_OADtFyrs1_ANCb5mSRDkCpY9W4oktNFlDSf9ShGy0y-VeNjG28-kJcjQLU3e3B4GEjSpmu1c3yoVjqHFag-lTLxW3gSSiay_l6Bwz0=s680-w680-h510" alt="Ambiance Namaste" class="w-full h-72 sm:h-96 object-cover" loading="lazy" onclick="openLightbox('https://lh3.googleusercontent.com/gps-cs-s/APNQkAEbINBMhurNYovG7234oF6uEvn87L8JUNpx1QExY_OADtFyrs1_ANCb5mSRDkCpY9W4oktNFlDSf9ShGy0y-VeNjG28-kJcjQLU3e3B4GEjSpmu1c3yoVjqHFag-lTLxW3gSSiay_l6Bwz0=s680-w680-h510')" style="cursor: zoom-in;" />
+            <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAEbINBMhurNYovG7234oF6uEvn87L8JUNpx1QExY_OADtFyrs1_ANCb5mSRDkCpY9W4oktNFlDSf9ShGy0y-VeNjG28-kJcjQLU3e3B4GEjSpmu1c3yoVjqHFag-lTLxW3gSSiay_l6Bwz0=s680-w680-h510" alt="Ambiance NAMASTE" class="w-full h-72 sm:h-96 object-cover" loading="lazy" onclick="openLightbox('https://lh3.googleusercontent.com/gps-cs-s/APNQkAEbINBMhurNYovG7234oF6uEvn87L8JUNpx1QExY_OADtFyrs1_ANCb5mSRDkCpY9W4oktNFlDSf9ShGy0y-VeNjG28-kJcjQLU3e3B4GEjSpmu1c3yoVjqHFag-lTLxW3gSSiay_l6Bwz0=s680-w680-h510')" style="cursor: zoom-in;" />
         </div>
     </div>
                     </div>
@@ -410,7 +405,7 @@
         </main>
 
         <footer class="w-full text-center pb-8 pt-12 mt-auto" data-animate style="animation-delay: 0.5s">
-            <p class="text-[10px] text-gray-500 uppercase tracking-widest font-medium opacity-60">© 2026 Namaste</p>
+            <p class="text-[10px] text-gray-500 uppercase tracking-widest font-medium opacity-60">© 2026 NAMASTE</p>
         </footer>
     </div>
     
@@ -468,36 +463,43 @@
       let isZoomed = false;
       let lastTapTime = 0;
       let currentScale = 1;
+      let panX = 0;
+      let panY = 0;
+      let isDragging = false;
+      let startX = 0;
+      let startY = 0;
+      let initialPanX = 0;
+      let initialPanY = 0;
 
-      function updateZoomState() {
+      function updateZoomState(animate = true) {
         const img = document.getElementById('lightbox-img');
-        const lb = document.getElementById('lightbox');
         
         if (currentScale <= 1) {
-          currentScale = 1;
-          isZoomed = false;
-          img.style.width = '';
-          img.classList.remove('max-w-none', 'cursor-zoom-out');
-          img.classList.add('max-w-[95vw]', 'max-h-[95vh]', 'object-contain', 'scale-100');
-          lb.classList.remove('overflow-auto', 'items-start', 'justify-start');
-          lb.classList.add('justify-center', 'items-center');
+            currentScale = 1;
+            panX = 0;
+            panY = 0;
+            isZoomed = false;
+            img.style.cursor = 'zoom-in';
+            img.style.transform = '';
         } else {
-          isZoomed = true;
-          img.classList.remove('max-w-[95vw]', 'max-h-[95vh]', 'object-contain', 'scale-100');
-          img.classList.add('max-w-none', 'cursor-zoom-out');
-          img.style.width = (100 * currentScale) + 'vw';
-          lb.classList.remove('justify-center', 'items-center');
-          lb.classList.add('overflow-auto', 'items-start', 'justify-start');
+            isZoomed = true;
+            img.style.cursor = isDragging ? 'grabbing' : 'grab';
+            img.style.transform = 'translate(' + panX + 'px, ' + panY + 'px) scale(' + currentScale + ')';
         }
+        
+        img.style.transition = animate ? 'transform 0.3s ease-out' : 'none';
       }
 
       function toggleZoom() {
         if (currentScale > 1) {
             currentScale = 1;
         } else {
-            currentScale = 2.5;
+            currentScale = 4;
         }
-        updateZoomState();
+        panX = 0;
+        panY = 0;
+        isDragging = false;
+        updateZoomState(true);
       }
 
       function handleImgClick(e) {
@@ -586,10 +588,6 @@
           }
       });
 
-      let touchstartX = 0;
-      let touchstartY = 0;
-      let touchendX = 0;
-      let touchendY = 0;
       let initialPinchDist = 0;
       let initialPinchScale = 1;
 
@@ -603,12 +601,16 @@
                           e.touches[0].pageY - e.touches[1].pageY
                       );
                       initialPinchScale = currentScale;
-                      touchstartX = null;
-                      return;
+                      isDragging = false;
+                  } else if (e.touches.length === 1) {
+                      startX = e.touches[0].pageX;
+                      startY = e.touches[0].pageY;
+                      if (currentScale > 1) {
+                          isDragging = true;
+                          initialPanX = panX;
+                          initialPanY = panY;
+                      }
                   }
-                  if (e.touches.length > 1) return;
-                  touchstartX = e.changedTouches[0].screenX;
-                  touchstartY = e.changedTouches[0].screenY;
               }, {passive: false});
 
               lb.addEventListener('touchmove', e => {
@@ -618,27 +620,30 @@
                           e.touches[0].pageX - e.touches[1].pageX,
                           e.touches[0].pageY - e.touches[1].pageY
                       );
-                      const scale = initialPinchScale * (dist / initialPinchDist);
-                      currentScale = Math.min(Math.max(1, scale), 15);
-                      updateZoomState();
+                      currentScale = Math.min(Math.max(1, initialPinchScale * (dist / initialPinchDist)), 30);
+                      updateZoomState(false);
+                  } else if (e.touches.length === 1) {
+                      if (isDragging && currentScale > 1) {
+                          e.preventDefault();
+                          panX = initialPanX + (e.touches[0].pageX - startX);
+                          panY = initialPanY + (e.touches[0].pageY - startY);
+                          updateZoomState(false);
+                      }
                   }
               }, {passive: false});
 
               lb.addEventListener('touchend', e => {
-                  if (touchstartX === null) return;
-                  if (e.changedTouches.length > 1) return;
-                  if (window.visualViewport && window.visualViewport.scale > 1.05) return;
-                  if (isZoomed) return;
-                  
-                  touchendX = e.changedTouches[0].screenX;
-                  touchendY = e.changedTouches[0].screenY;
-                  
-                  const diffX = touchendX - touchstartX;
-                  const diffY = touchendY - touchstartY;
-                  
-                  if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
-                      if (diffX < 0) nextLightboxImage();
-                      if (diffX > 0) prevLightboxImage();
+                  if (e.touches.length < 2) {
+                      initialPinchDist = 0;
+                  }
+                  if (e.touches.length === 0) {
+                      if (!isDragging && currentScale === 1) {
+                          const diffX = e.changedTouches[0].pageX - startX;
+                          if (diffX < -50) nextLightboxImage();
+                          else if (diffX > 50) prevLightboxImage();
+                      }
+                      isDragging = false;
+                      updateZoomState(true);
                   }
               }, {passive: true});
               
@@ -647,8 +652,8 @@
                   if (e.ctrlKey || e.metaKey) {
                       e.preventDefault();
                       const newScale = currentScale - (e.deltaY * 0.01);
-                      currentScale = Math.min(Math.max(1, newScale), 15);
-                      updateZoomState();
+                      currentScale = Math.min(Math.max(1, newScale), 30);
+                      updateZoomState(false);
                   }
               }, {passive: false});
           }
