@@ -7,16 +7,12 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    
-    <link rel='preconnect' href='https://fonts.googleapis.com'>
-    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
     <link href='https://fonts.googleapis.com/css2?family=Playfair+Display&family=Montserrat:wght@400;600&display=swap' rel='stylesheet'>
-  
     <style>
         :root {
             --bg-color: radial-gradient(135deg, #452B7F 0%, #1A1D23 100%);
             --text-color: #ffffff;
-            --accent-color: #FFC700;
+            --accent-color: #FFD700;
             --font-title: 'Playfair Display', serif;
         }
 
@@ -142,9 +138,9 @@
         
         
     body {
-      font-family: 'Montserrat', sans-serif;
       margin: 0;
       padding: 0;
+      font-family: 'Montserrat', sans-serif;
     }
     .container {
       max-width: 1200px;
@@ -196,7 +192,7 @@
             <div class="w-12 h-1 bg-white/10 mx-auto rounded-full mb-8 relative overflow-hidden">
                 <div class="absolute inset-0 bg-[var(--accent-color)] w-1/2 rounded-full"></div>
             </div>
-            <p class="text-base sm:text-lg font-light leading-relaxed opacity-80 px-4 max-w-lg mx-auto italic">"Découvrez l'essence de l'Inde à Namaste"</p>
+            <p class="text-base sm:text-lg font-light leading-relaxed opacity-80 px-4 max-w-lg mx-auto italic">"Découvrez l'expérience culinaire indienne authentique"</p>
         </header>
 
         <main class="w-full flex-grow flex flex-col items-center justify-center relative">
@@ -361,7 +357,7 @@
 
             
             <section class="w-full mt-24 mb-8" data-animate style="animation-delay: 0.4s">
-                <h2 class="text-2xl sm:text-3xl font-bold mb-10 text-center display-font opacity-90">Expérience culinaire indienne authentique</h2>
+                <h2 class="text-2xl sm:text-3xl font-bold mb-10 text-center display-font opacity-90">Namaste, l'essence de l'Inde</h2>
                 <div class="swiper ambiance-swiper !pb-12 !pt-4">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide flex justify-center items-center">
@@ -461,23 +457,37 @@
       let currentLightboxIndex = 0;
       let isZoomed = false;
       let lastTapTime = 0;
+      let currentScale = 1;
 
-      function toggleZoom() {
+      function updateZoomState() {
         const img = document.getElementById('lightbox-img');
         const lb = document.getElementById('lightbox');
-        isZoomed = !isZoomed;
         
-        if (isZoomed) {
-          img.classList.remove('max-w-[95vw]', 'max-h-[95vh]', 'object-contain', 'scale-100');
-          img.classList.add('max-w-none', 'w-[200vw]', 'sm:w-[150vw]', 'h-auto', 'cursor-zoom-out');
-          lb.classList.remove('justify-center', 'items-center');
-          lb.classList.add('overflow-auto', 'items-start', 'justify-start');
-        } else {
-          img.classList.remove('max-w-none', 'w-[200vw]', 'sm:w-[150vw]', 'h-auto', 'cursor-zoom-out');
+        if (currentScale <= 1) {
+          currentScale = 1;
+          isZoomed = false;
+          img.style.width = '';
+          img.classList.remove('max-w-none', 'cursor-zoom-out');
           img.classList.add('max-w-[95vw]', 'max-h-[95vh]', 'object-contain', 'scale-100');
           lb.classList.remove('overflow-auto', 'items-start', 'justify-start');
           lb.classList.add('justify-center', 'items-center');
+        } else {
+          isZoomed = true;
+          img.classList.remove('max-w-[95vw]', 'max-h-[95vh]', 'object-contain', 'scale-100');
+          img.classList.add('max-w-none', 'cursor-zoom-out');
+          img.style.width = (100 * currentScale) + 'vw';
+          lb.classList.remove('justify-center', 'items-center');
+          lb.classList.add('overflow-auto', 'items-start', 'justify-start');
         }
+      }
+
+      function toggleZoom() {
+        if (currentScale > 1) {
+            currentScale = 1;
+        } else {
+            currentScale = 2.5;
+        }
+        updateZoomState();
       }
 
       function handleImgClick(e) {
@@ -521,7 +531,10 @@
       function closeLightbox() {
         const lb = document.getElementById('lightbox');
         const img = document.getElementById('lightbox-img');
-        if (isZoomed) toggleZoom();
+        if (isZoomed) {
+          currentScale = 1;
+          updateZoomState();
+        }
         currentLightboxGroup = null;
         lb.classList.add('opacity-0', 'pointer-events-none');
         img.classList.remove('scale-100');
@@ -535,7 +548,10 @@
       function nextLightboxImage(e) {
         if(e) e.stopPropagation();
         if(!currentLightboxGroup) return;
-        if (isZoomed) toggleZoom();
+        if (isZoomed) {
+          currentScale = 1;
+          updateZoomState();
+        }
         currentLightboxIndex = (currentLightboxIndex + 1) % currentLightboxGroup.length;
         document.getElementById('lightbox-img').src = currentLightboxGroup[currentLightboxIndex];
       }
@@ -543,7 +559,10 @@
       function prevLightboxImage(e) {
         if(e) e.stopPropagation();
         if(!currentLightboxGroup) return;
-        if (isZoomed) toggleZoom();
+        if (isZoomed) {
+          currentScale = 1;
+          updateZoomState();
+        }
         currentLightboxIndex = (currentLightboxIndex - 1 + currentLightboxGroup.length) % currentLightboxGroup.length;
         document.getElementById('lightbox-img').src = currentLightboxGroup[currentLightboxIndex];
       }
@@ -561,15 +580,42 @@
       let touchstartY = 0;
       let touchendX = 0;
       let touchendY = 0;
+      let initialPinchDist = 0;
+      let initialPinchScale = 1;
+
       window.addEventListener('load', () => {
           const lb = document.getElementById('lightbox');
           if(lb) {
               lb.addEventListener('touchstart', e => {
+                  if (e.touches.length === 2) {
+                      initialPinchDist = Math.hypot(
+                          e.touches[0].pageX - e.touches[1].pageX,
+                          e.touches[0].pageY - e.touches[1].pageY
+                      );
+                      initialPinchScale = currentScale;
+                      touchstartX = null;
+                      return;
+                  }
                   if (e.touches.length > 1) return;
                   touchstartX = e.changedTouches[0].screenX;
                   touchstartY = e.changedTouches[0].screenY;
-              }, {passive: true});
+              }, {passive: false});
+
+              lb.addEventListener('touchmove', e => {
+                  if (e.touches.length === 2) {
+                      e.preventDefault();
+                      const dist = Math.hypot(
+                          e.touches[0].pageX - e.touches[1].pageX,
+                          e.touches[0].pageY - e.touches[1].pageY
+                      );
+                      const scale = initialPinchScale * (dist / initialPinchDist);
+                      currentScale = Math.min(Math.max(1, scale), 5);
+                      updateZoomState();
+                  }
+              }, {passive: false});
+
               lb.addEventListener('touchend', e => {
+                  if (touchstartX === null) return;
                   if (e.changedTouches.length > 1) return;
                   if (window.visualViewport && window.visualViewport.scale > 1.05) return;
                   if (isZoomed) return;
@@ -585,6 +631,16 @@
                       if (diffX > 0) prevLightboxImage();
                   }
               }, {passive: true});
+              
+              lb.addEventListener('wheel', e => {
+                  if (!currentLightboxGroup) return;
+                  if (e.ctrlKey || e.metaKey) {
+                      e.preventDefault();
+                      const newScale = currentScale - (e.deltaY * 0.01);
+                      currentScale = Math.min(Math.max(1, newScale), 5);
+                      updateZoomState();
+                  }
+              }, {passive: false});
           }
       });
     </script>
